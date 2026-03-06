@@ -1,0 +1,53 @@
+@import url(style.css);
+
+#tr-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tr-object {
+    width: 100%;
+    aspect-ratio: 6/1;
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+    overflow: hidden;
+    padding: 5% 2% 5% 0%;
+}
+
+.tr-icon {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--primary);
+    border-radius: 10%;
+    background-image: url(../assets/headphones-light.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80% auto;
+}
+
+.tr-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5% 0% 5% 3%;
+}
+
+.tr-title {
+    font-size: 2vh;
+    font-weight: bold;
+}
+
+.tr-author {}
+
+
+
+.tr-object:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+
+    .tr-icon {
+        background-color: var(--secondary);
+    }
+}

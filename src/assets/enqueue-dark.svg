@@ -1,0 +1,23 @@
+<svg fill="#67697c" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg">
+  <g id="SVGRepo_iconCarrier">
+    <!-- Linee originali -->
+    <!-- Riga 1 -->
+    <rect x="40" y="48" width="176" height="20" rx="10"/>
+
+    <!-- Riga 2 -->
+    <rect x="40" y="88" width="176" height="20" rx="10"/>
+
+    <!-- Riga 3 -->
+    <rect x="40" y="128" width="96" height="20" rx="10"/>
+
+    <!-- Riga 4 -->
+    <rect x="40" y="168" width="96" height="20" rx="10"/>
+
+    <!-- Nuovo simbolo + -->
+    <path d="M176,132
+             a12,12,0,0,1,24,0v16h16
+             a12,12,0,0,1,0,24H200v16
+             a12,12,0,0,1-24,0V172H160
+             a12,12,0,0,1,0-24h16Z"/>
+  </g>
+</svg>

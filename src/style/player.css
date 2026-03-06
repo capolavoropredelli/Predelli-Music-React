@@ -1,0 +1,45 @@
+#play-container {
+    position: fixed;
+    bottom: 10vh;
+    width: 90%;
+    aspect-ratio: 25/1;
+    margin: 0 5% 0 5%;
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    align-items: center;
+    justify-items: center;
+
+    background-color: var(--secondary);
+    border-radius: 10vh;
+}
+
+#player {
+    width: 100%;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: var(--secondary);
+}
+
+
+#play-container button {
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    border: none;
+
+    background-size: 70% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#prev {
+    background-image: url(../assets/prev-dark.svg);
+    padding-left: 5%;
+}
+
+#next {
+    background-image: url(../assets/next-dark.svg);
+    padding-right: 5%;
+}

@@ -1,0 +1,43 @@
+@import url(style.css);
+
+#login-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login-form {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#login-form input[type=password],
+#login-form input[type=text] {
+    width: 90%;
+    padding: 3% 5% 3% 5%;
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+#login-form input[type=submit] {
+    width: 50%;
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 20px;
+    padding: 3% 5% 3% 5%;
+    font-weight: bold;
+}
+
+#login-form input[type=submit]:hover {
+    cursor: pointer;
+    background-color: var(--tertiary);
+    transform: scale(1.05);
+}
