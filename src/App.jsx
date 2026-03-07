@@ -11,16 +11,12 @@ import Login from './pages/login'
 import Playlist from './pages/playlist'
 import Queue from './pages/queue'
 import Download from './pages/download'
+import Settings from './pages/settings'
 import './style/style.css'
 
 function Library() {
   return (
     <h1>Library</h1>
-  )
-}
-function Settings() {
-  return (
-    <h1>Settings</h1>
   )
 }
 

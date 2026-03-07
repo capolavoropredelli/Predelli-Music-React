@@ -12,7 +12,7 @@ export const MusicProvider = ({ children }) => {
 
 
 
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(null);
     const [currentPlaylist, setCurrentPlaylist] = useState(null);
     const [currentTrack, setCurrentTrack] = useState(null);
     const [queue, setQueue] = useState([]);
@@ -22,6 +22,8 @@ export const MusicProvider = ({ children }) => {
 
 
     useEffect(() => {
+        if (!loading) return;
+
         const fetch_library = async () => {
 
 
@@ -49,7 +51,7 @@ export const MusicProvider = ({ children }) => {
             if (storedLibrary) setLibrary(new Map(storedLibrary));
         }
 
-    }, [])
+    }, [loading])
 
     useEffect(() => {
         const scan_again = async () => {
@@ -143,7 +145,8 @@ export const MusicProvider = ({ children }) => {
         addToPlayed,
         removeFromPlayed,
         updating,
-        setUpdating
+        setUpdating,
+        setLoading
     };
 
     return <MusicContext.Provider value={value}>
