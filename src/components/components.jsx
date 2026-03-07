@@ -97,7 +97,6 @@ export function Track({ pl, id, title, author, isQueue = false }) {
     )
 }
 
-
 export function Result({ title, author, url, navigate }) {
 
     const [status, setStatus] = useState("");
@@ -133,4 +132,31 @@ export function Result({ title, author, url, navigate }) {
             </div>
         </>
     )
+}
+
+export function SearchBar({ setTracks, tracks }) {
+
+    function search(e) {
+        let text_searched = e.target.value;
+        let newTracks = []
+        let title, author;
+        tracks.forEach(t => {
+            title = t.title;
+            author = t.author;
+
+            title = title.toLowerCase();
+            author = author.toLowerCase();
+            text_searched = text_searched.toLowerCase();
+
+            if (title.includes(text_searched) || author.includes(text_searched)) {
+                newTracks.push(t);
+            }
+        })
+        setTracks(newTracks);
+    }
+
+    return (
+        <input type="text" name="search-bar" id="search-bar" placeholder="search" onKeyUp={(e) => search(e)} />
+    )
+
 }

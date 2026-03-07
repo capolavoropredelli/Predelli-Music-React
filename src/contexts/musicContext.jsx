@@ -10,8 +10,6 @@ export const useMusicContext = () => useContext(MusicContext);
 export const MusicProvider = ({ children }) => {
     const navigate = useNavigate();
 
-
-
     const [loading, setLoading] = useState(true);
     const [currentPlaylist, setCurrentPlaylist] = useState(null);
     const [currentTrack, setCurrentTrack] = useState(null);
@@ -151,10 +149,6 @@ export const MusicProvider = ({ children }) => {
 
 
     /* debug */
-    useEffect(() => {
-        console.log("Palyed: ", played);
-        console.log("Queue: ", queue);
-    }, [played, queue])
 
     return <MusicContext.Provider value={value}>
         {children}
