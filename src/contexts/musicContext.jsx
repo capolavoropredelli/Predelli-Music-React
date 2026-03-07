@@ -83,7 +83,7 @@ export const MusicProvider = ({ children }) => {
     })
 
     const playNext = ((track) => {
-        setQueue(prev => [track, ...prev])
+        setQueue(prev => [...prev.slice(0, 1), track, ...prev.slice(1)])
     })
 
     const upQueue = (trackId) => {
@@ -148,6 +148,13 @@ export const MusicProvider = ({ children }) => {
         setUpdating,
         setLoading
     };
+
+
+    /* debug */
+    useEffect(() => {
+        console.log("Palyed: ", played);
+        console.log("Queue: ", queue);
+    }, [played, queue])
 
     return <MusicContext.Provider value={value}>
         {children}

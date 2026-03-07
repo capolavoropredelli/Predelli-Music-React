@@ -1,14 +1,6 @@
 const API_URL = "http://localhost:8000" /*"https://apimusic.predelli.site"*/
 
 function get_template_form(meth, form_data) {
-    console.log({
-        method: meth,
-        headers: {
-            "Content-Type": "application/json"
-        },
-        credentials: "include",
-        body: JSON.stringify(form_data)
-    })
     return {
         method: meth,
         headers: {
@@ -22,7 +14,6 @@ function get_template_form(meth, form_data) {
 export async function api_request(route, method, navigate, body = {}, retry = true) {
     const API_ROUTE = API_URL + "/" + route;
     try {
-        console.log(route);
         const response = await fetch(API_ROUTE, get_template_form(method, body));
         if (!response.ok) {
             const errorData = await response.json();

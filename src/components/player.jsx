@@ -15,7 +15,6 @@ function Player() {
         let nextId;
         if (queue.length > 1) {
             nextId = queue[1].id;
-            console.log(queue[1]);
         } else {
             const next = getRandomTrack();
             nextId = next.id;
@@ -33,7 +32,6 @@ function Player() {
     }
 
     function playPrev() {
-        console.log(played);
         const dim = played.length;
         if (dim > 0) {
             let prevId;

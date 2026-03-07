@@ -8,7 +8,6 @@ export function Playlist({ name }) {
     const navigate = useNavigate();
 
     function handleClick() {
-        console.log(name);
         navigate("/playlist/" + name);
     }
 
