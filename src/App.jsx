@@ -12,6 +12,7 @@ import Playlist from './pages/playlist'
 import Queue from './pages/queue'
 import Download from './pages/download'
 import Settings from './pages/settings'
+import AddPlaylist from './pages/addPlaylist'
 import './style/style.css'
 
 function Library() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/download" element={<Download />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/playlist/:name" element={<Playlist />} />
+          <Route path='/playlist/new' element={<AddPlaylist />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>

@@ -17,9 +17,7 @@ function Playlist() {
         }
         else {
             const t = library.get(name);
-            console.log(t);
             setTracks(t);
-            console.log(tracks);
         }
 
     }, [loading])
@@ -28,6 +26,7 @@ function Playlist() {
     return (
         <>
             <h1>{name}</h1>
+            <SearchBar setTracks={setTracks} tracks={library.get(name)} />
             <div id='tr-container'>
                 {loading == false ? tracks.map(t => <Track key={t.id} id={t.id} title={t.title} author={t.author} pl={name} />) : "<p>loading...</p>"}
             </div>
