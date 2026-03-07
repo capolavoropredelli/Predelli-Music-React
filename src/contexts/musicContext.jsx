@@ -12,7 +12,7 @@ export const MusicProvider = ({ children }) => {
 
 
 
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [currentPlaylist, setCurrentPlaylist] = useState(null);
     const [currentTrack, setCurrentTrack] = useState(null);
     const [queue, setQueue] = useState([]);

@@ -83,11 +83,11 @@ export function Track({ pl, id, title, author, isQueue = false }) {
             </div>
             <div className="tr-actions">
                 {(!isQueue) ? (<>
-                    <button className="tr-play" onClick={playClick}>play</button>
-                    <button className="tr-enqueue" onClick={enqueueClick}>enqueue</button>
-                    <button className="tr-playnext" onClick={playNextClick}>play next</button>
-                    <button className="tr-playlist">playlist</button>
-                    <button className="tr-hide">hide</button>
+                    <button className="tr-play" onClick={playClick}></button>
+                    <button className="tr-enqueue" onClick={enqueueClick}></button>
+                    <button className="tr-playnext" onClick={playNextClick}></button>
+                    <button className="tr-playlist"></button>
+                    <button className="tr-hide"></button>
                 </>) : (<>
                     <button className="tr-dequeue" onClick={dequeueClick}>dequeue</button>
                     <button className="tr-up" onClick={upClick}>up</button>
