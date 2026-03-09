@@ -59,7 +59,7 @@ function sort(array) {
 
 export function play(id) {
     const player = document.getElementById("player");
-    player.src = "https://apimusic.predelli.sitestream/" + id;
+    player.src = "https://apimusic.predelli.site/stream/" + id;
     //player.src = "http://localhost:8000/stream/" + id;
     player.play();
 }
