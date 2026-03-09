@@ -49,7 +49,7 @@ function Player() {
 
             <div id="play-container">
                 <button id="prev" onClick={playPrev}></button>
-                <audio id='player' controls onEnded={playNext}></audio>
+                <audio id='player' controls onEnded={playNextSong}></audio>
                 <button id="next" onClick={playNextSong}></button>
             </div>
 
