@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000" /*"https://apimusic.predelli.site"*/
+const API_URL = /*"http://localhost:8000"*/ "https://apimusic.predelli.site"
 
 function get_template_form(meth, form_data) {
     return {
