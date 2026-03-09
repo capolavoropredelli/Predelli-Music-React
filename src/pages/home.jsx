@@ -6,18 +6,26 @@ import { useMusicContext } from '../contexts/musicContext';
 import '../style/home.css';
 
 function Home() {
-    const { library, loading } = useMusicContext();
+    const { library, loading, load_library } = useMusicContext();
     const playlists = [...library.keys()];
     const navigate = useNavigate();
+
+    function addClick() {
+        navigate("/add_playlist");
+    }
+
+    const loadFunction = async () => {
+        await load_library();
+    }
 
     return (
         <>
             <h1>Home</h1>
-            <div id="pl-container">
+            <div id="pl-container" onLoad={loadFunction}>
                 {(loading == false) ?
                     (<> {playlists.map(pl => <Playlist name={pl} key={pl} />)}
                         <div className="pl-object">
-                            <div id='pl-add' onClick={navigate("/playlist/new")}></div>
+                            <div id='pl-add' onClick={addClick}></div>
                         </div></>)
                     : (<p>loading...</p>)}
             </div>

@@ -10,6 +10,7 @@ export const useMusicContext = () => useContext(MusicContext);
 export const MusicProvider = ({ children }) => {
     const navigate = useNavigate();
 
+    const [isLogged, setIsLogged] = useState(false);
     const [loading, setLoading] = useState(true);
     const [currentPlaylist, setCurrentPlaylist] = useState(null);
     const [currentTrack, setCurrentTrack] = useState(null);
@@ -18,38 +19,40 @@ export const MusicProvider = ({ children }) => {
     const [library, setLibrary] = useState(new Map());
     const [updating, setUpdating] = useState(false);
 
+    const load_library = async () => {
+        setLoading(true);
+
+        const scan = await api_request("scan", "POST", navigate);
+        const playlists = await api_request("playlists", "POST", navigate);
+        const map = new Map();
+
+        const tracksArray = await Promise.all(
+            playlists.map(pl =>
+                api_request("tracks", "POST", navigate, pl.name)
+            )
+        );
+
+        playlists.forEach((pl, i) => {
+            map.set(pl.name, tracksArray[i]);
+        });
+
+
+        setLibrary(map);
+        setLoading(false);
+    }
 
     useEffect(() => {
-        if (!loading) return;
-
-        const fetch_library = async () => {
-
-
-            const scan = await api_request("scan", "POST", navigate);
-            const playlists = await api_request("playlists", "POST", navigate);
-            const map = new Map();
-
-            const tracksArray = await Promise.all(
-                playlists.map(pl =>
-                    api_request("tracks", "POST", navigate, pl.name)
-                )
-            );
-
-            playlists.forEach((pl, i) => {
-                map.set(pl.name, tracksArray[i]);
-            });
-
-
-            setLibrary(map);
-            setLoading(false);
+        if (isLogged == false) {
+            navigate('/login');
         }
-        if (loading) { fetch_library(); }
+
+        if (loading) { load_library(); }
         else {
             const storedLibrary = JSON.parse(sessionStorage.getItem("library"));
             if (storedLibrary) setLibrary(new Map(storedLibrary));
         }
 
-    }, [loading])
+    }, [isLogged])
 
     useEffect(() => {
         const scan_again = async () => {
@@ -126,12 +129,14 @@ export const MusicProvider = ({ children }) => {
     }
 
     const value = {
+        isLogged,
         queue,
         library,
         loading,
         played,
         currentPlaylist,
         currentTrack,
+        setIsLogged,
         setCurrentPlaylist,
         setCurrentTrack,
         addToQueue,
@@ -144,7 +149,8 @@ export const MusicProvider = ({ children }) => {
         removeFromPlayed,
         updating,
         setUpdating,
-        setLoading
+        setLoading,
+        load_library
     };
 
 

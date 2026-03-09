@@ -33,7 +33,7 @@ function App() {
           <Route path="/download" element={<Download />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/playlist/:name" element={<Playlist />} />
-          <Route path='/playlist/new' element={<AddPlaylist />} />
+          <Route path='/add_playlist' element={<AddPlaylist />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>

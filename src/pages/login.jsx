@@ -5,7 +5,7 @@ import '../style/login.css';
 import { useMusicContext } from "../contexts/musicContext";
 
 function Login() {
-    const { setLoading } = useMusicContext();
+    const { setIsLogged } = useMusicContext();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ function Login() {
         }
         const result = await api_request("login", "POST", navigate, body);
         if (result.success == true) {
-            setLoading(true);
+            setIsLogged(true);
             navigate("/");
         }
     }

@@ -25,6 +25,7 @@ function AddPlaylist() {
 
     return (
         <>
+            <h1>New playlist</h1>
             <form onSubmit={newPlaylist}>
                 <input type="text" name="name" id="pl-name" />
                 <input type="submit" value="add" id="pl-sub" />
