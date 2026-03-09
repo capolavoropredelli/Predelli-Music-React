@@ -97,6 +97,23 @@ export function Track({ pl, id, title, author, isQueue = false }) {
     )
 }
 
+export function TrackPlaylist({ id, title, author, isSelected, onClick }) {
+    //const { addToQueue, isInQueue, removeFromQueue, upQueue, downQueue, playNext, setCurrentPlaylist } = useMusicContext();
+
+    return (
+        <div className="tr-object" onClick={() => onClick(id)}>
+            <div className="tr-icon"></div>
+            <div className="tr-info">
+                <div className="tr-title">{title}</div>
+                <div className="tr-author">{author}</div>
+            </div>
+            <div className="tr-actions">
+                <button>{(isSelected) ? "selected" : "select"}</button>
+            </div>
+        </div>
+    )
+}
+
 export function Result({ title, author, url, navigate }) {
 
     const [status, setStatus] = useState("");

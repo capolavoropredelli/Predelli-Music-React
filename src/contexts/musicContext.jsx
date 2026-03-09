@@ -9,8 +9,7 @@ export const useMusicContext = () => useContext(MusicContext);
 
 export const MusicProvider = ({ children }) => {
     const navigate = useNavigate();
-
-    const [isLogged, setIsLogged] = useState(false);
+    const [isLogged, setIsLogged] = useState(sessionStorage.getItem("isLogged") ? sessionStorage.getItem("isLogged") : false);
     const [loading, setLoading] = useState(true);
     const [currentPlaylist, setCurrentPlaylist] = useState(null);
     const [currentTrack, setCurrentTrack] = useState(null);
@@ -45,6 +44,8 @@ export const MusicProvider = ({ children }) => {
         if (isLogged == false) {
             navigate('/login');
         }
+
+        sessionStorage.setItem("isLogged", true);
 
         if (loading) { load_library(); }
         else {
