@@ -5,7 +5,9 @@ import { useMusicContext } from '../contexts/musicContext';
 function Player() {
     const { queue, library, removeFromQueue, currentPlaylist, currentTrack, played, removeFromPlayed, addToPlayed, playNext } = useMusicContext();
 
+
     function playNextSong() {
+        console.log("playing next...")
 
         // moving current song from queue to played
         const current = queue[0];
@@ -21,6 +23,11 @@ function Player() {
             playNext(next);
         }
         play(nextId);
+        console.log("next played...")
+    }
+
+    function test() {
+        console.log("testing...");
     }
 
     function getRandomTrack() {
