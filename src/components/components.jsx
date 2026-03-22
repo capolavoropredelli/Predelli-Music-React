@@ -120,7 +120,7 @@ export function Result({ title, author, url, navigate }) {
     const { updating, setUpdating } = useMusicContext();
 
     async function downloadClick() {
-        let filename = title + " - " + author;
+        let filename = title + " --- " + author + " --- ";
 
         setStatus("downloading...");
         const request = await api_request("yt_download", "POST", navigate, { url, filename });
